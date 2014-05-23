@@ -44,4 +44,7 @@ RSpec.configure do |config|
 
   #capybara config
   config.include Capybara::DSL
+
+  #factorygirl config
+  config.include FactoryGirl::Syntax::Methods
 end
