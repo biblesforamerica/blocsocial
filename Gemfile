@@ -29,6 +29,9 @@ gem 'spring',      group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+#storing configuration variables
+gem 'figaro' 
+gem 'omniauth-facebook'
 
 gem "capybara", group: [:development, :test]
 gem "devise"

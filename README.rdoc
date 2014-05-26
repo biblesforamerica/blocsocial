@@ -3,6 +3,21 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
+# Todo list (order matters)
+
+Get facebook authentication with devise working
+Get mailgun working to process incoming emails
+  bookmark model
+  tagging functions
+  associating bookmarks with a user by from email
+Liking a bookmark (unliking)
+Deleting a bookmark
+
+
+
+
+
+
 Things you may want to cover:
 
 * Ruby version
