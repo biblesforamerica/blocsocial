@@ -24,7 +24,12 @@ describe IncomingController do
 
     it "should attach a url to the user's account"
 
-    it "should create the hash tag if the hash tag does not exist"
+    it "should create the hash tag if the hash tag does not exist" do
+      params = incoming_email_params(subject: "Heavenly")
+      Bookmark.tag_counts.count.should eq(0)
+      post :create, params
+      Bookmark.tag_counts.count.should eq(1)
+    end
 
     it "should assign the hash tag to @hashtag"
 

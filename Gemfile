@@ -41,3 +41,5 @@ gem "haml-rails"
 gem "jquery-rails"
 gem "rspec-rails", ">= 2.0.1", group: [:development, :test]
 gem "pry", group: [:development, :test]
+
+gem 'acts-as-taggable-on'
