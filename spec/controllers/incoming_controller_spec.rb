@@ -24,16 +24,23 @@ describe IncomingController do
 
     it "should attach a url to the user's account"
 
+    it "should assign the hash tag to @hashtag"
+
     it "should create the hash tag if the hash tag does not exist" do
-      params = incoming_email_params(subject: "Heavenly")
+      tagname = "Heavenly" 
+      params = incoming_email_params(subject: tagname)
       Bookmark.tag_counts.count.should eq(0)
       post :create, params
       Bookmark.tag_counts.count.should eq(1)
+      Bookmark.tag_counts.first.name.should eq(tagname)
     end
 
-    it "should assign the hash tag to @hashtag"
-
-    it "should assign the new url to the hash tag"
+    it "should assign the new url to the hash tag" do
+      tagname = "Heavenly" 
+      params = incoming_email_params(subject: tagname)
+      post :create, params
+      expect(Bookmark.first.tag_list).to include(tagname)
+    end
 
 
 
