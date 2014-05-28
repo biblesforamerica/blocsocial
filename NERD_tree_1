@@ -1,0 +1,46 @@
+" Press ? for help
+
+.. (up a dir)
+<sers/ericchen/code/blocsocial/
+▾ app/
+  ▸ assets/
+  ▾ controllers/
+    ▸ concerns/
+    ▸ users/
+      application_controller.rb
+      bookmarks_controller.rb
+      incoming_controller.rb
+      welcome_controller.rb
+  ▸ helpers/
+  ▸ mailers/
+  ▸ models/
+  ▾ views/
+    ▾ bookmarks/
+        index.html.erb
+    ▸ devise/
+    ▸ layouts/
+    ▸ welcome/
+▸ bin/
+▸ config/
+▸ db/
+▸ lib/
+▸ log/
+▸ public/
+▾ spec/
+  ▸ controllers/
+  ▾ factories/
+  ▾ features/
+      user_views_index_of_bookmarks_spec.rb
+      user_visit_homepage_spec.rb
+  ▸ models/
+  ▸ requests/
+  ▸ support/
+    factories.rb
+    spec_helper.rb
+▸ tmp/
+▸ vendor/
+  config.ru
+  Gemfile
+  Gemfile.lock
+  Rakefile
+  README.rdoc
