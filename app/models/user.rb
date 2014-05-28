@@ -7,12 +7,17 @@ class User < ActiveRecord::Base
 
 
   has_many :bookmarks  #as an owner
-  has_many :likes
+  has_many :likes, dependent: :destroy
 
   has_many :liked_bookmarks, through: :likes
 
+  def like(bookmark)
+    self.liked_bookmarks << bookmark
+  end
 
-
+  def unlike(bookmark)
+    self.liked_bookmarks.delete(bookmark)
+  end
 
   def self.find_for_facebook_oauth(auth)
         where(auth.slice(:provider, :uid)).first_or_create do |user|
