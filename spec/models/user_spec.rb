@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "Relationships" do
+
+    it {should have_many(:likes)}
+    it {should have_many(:liked_bookmarks).through(:likes)}
+    it {should have_many(:bookmarks)}
+
+  end
 end

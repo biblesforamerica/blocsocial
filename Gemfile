@@ -33,13 +33,19 @@ gem 'spring',      group: :development
 gem 'figaro' 
 gem 'omniauth-facebook'
 
-gem "capybara", group: [:development, :test]
 gem "devise"
 gem 'factory_girl_rails', '~> 4.0'
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem "jquery-rails"
-gem "rspec-rails", ">= 2.0.1", group: [:development, :test]
-gem "pry", group: [:development, :test]
+
+group :development, :test do
+  gem "rspec-rails"
+  gem "pry"
+  gem "shoulda"
+  gem "capybara"
+end
+  
+
 
 gem 'acts-as-taggable-on'

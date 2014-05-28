@@ -6,8 +6,10 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:facebook]
 
 
-  has_many :bookmarks
+  has_many :bookmarks  #as an owner
+  has_many :likes
 
+  has_many :liked_bookmarks, through: :likes
 
 
 

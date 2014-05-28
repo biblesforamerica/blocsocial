@@ -1,5 +1,13 @@
 require 'spec_helper'
 
 describe Bookmark do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+
+  describe "Relationships" do
+
+    it {should have_many(:likes)}
+    it {should belong_to(:user)}
+    it {should have_many(:likers).through(:likes)}
+
+  end
 end
