@@ -1,7 +1,7 @@
 class BookmarksController < ApplicationController
   def index
     @bookmarks = current_user.bookmarks
-    @tags = current_user.my_bookmarks
+     @tags = current_user.my_hashes
   end
 
   def destroy
