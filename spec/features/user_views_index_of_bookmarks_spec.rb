@@ -37,7 +37,6 @@ feature 'User visits bookmarks index and sees the bookmarks he has saved' do
     expect(page).to_not have_content "user2.me"
   end
 
-
   scenario "sees his bookmarks categorized by tag" do
     @b = create(:bookmark, user: user, url: "user.me")
     @b.tag_list.add("God's Economy")
@@ -47,10 +46,4 @@ feature 'User visits bookmarks index and sees the bookmarks he has saved' do
 
     expect(page).to have_content ("God's Economy")
   end
-
-
-
-
-
-
 end
