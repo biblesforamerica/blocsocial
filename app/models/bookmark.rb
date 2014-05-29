@@ -12,6 +12,11 @@ class Bookmark < ActiveRecord::Base
     self.likes.size
   end
 
+  def bookmarks_by_owner
+    @tags = []
+    self.collect{|bookmark| @tags << bookmark.tag_list }
+  end
+
   def addtag(tag)
     self.tag_list.add(tag)
     self.save

@@ -1,8 +1,7 @@
 class BookmarksController < ApplicationController
   def index
     @bookmarks = current_user.bookmarks
-    @tags = []
-    current_user.bookmarks.all.collect{|bookmark| @tags << bookmark.tag_list }
+    @tags = current_user.my_bookmarks
   end
 
   def destroy
