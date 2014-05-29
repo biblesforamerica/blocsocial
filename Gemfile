@@ -42,9 +42,17 @@ gem "jquery-rails"
 group :development, :test do
   gem "rspec-rails"
   gem "pry"
+<<<<<<< HEAD
   gem "minitest"  #https://github.com/thoughtbot/shoulda-matchers/issues/408 to fix some errors (needed for shoulda)
   gem "shoulda"
   gem "capybara"
 end
+=======
+  gem "shoulda"
+  gem "capybara"
+end
+  
+
+>>>>>>> likeability
 
 gem 'acts-as-taggable-on'
