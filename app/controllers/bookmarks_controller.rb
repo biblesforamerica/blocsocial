@@ -1,6 +1,7 @@
 class BookmarksController < ApplicationController
   def index
     @bookmarks = current_user.bookmarks
+    @tags = current_user.my_hashes #bookmarks are grouped by hashes, which are like topics
   end
 
   def destroy

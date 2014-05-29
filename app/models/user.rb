@@ -11,6 +11,12 @@ class User < ActiveRecord::Base
 
   has_many :liked_bookmarks, through: :likes
 
+  def my_hashes
+    @tags = []
+    self.bookmarks.all.collect{|bookmark| @tags << bookmark.tag_list }
+    @tags
+  end
+
   def like(bookmark)
     self.liked_bookmarks << bookmark
   end

@@ -47,4 +47,7 @@ RSpec.configure do |config|
 
   #factorygirl config
   config.include FactoryGirl::Syntax::Methods
+
+  #include spec module for users
+  config.include(UserHelper)
 end
