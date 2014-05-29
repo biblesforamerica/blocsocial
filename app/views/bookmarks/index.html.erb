@@ -1,7 +1,12 @@
+<h1> My Bookmarks </h1>
 <% @tags.each do |tag| %>
-  <%= tag %>
-<% end %>
-<% @bookmarks.each do |bookmark|%>
-  <%= bookmark.url %>
-   
+  <%= content_tag :div, id: "#{tag}" do %>
+    <%= tag %>
+    <ul>
+    <#% @bookmarks.each do |bookmark|%>
+      <% @bookmarks.tagged_with(tag).each do |bookmark|%>
+        <li><%= bookmark.url %></li>
+      <% end %>
+    </ul>
+  <% end %>
 <% end %>
