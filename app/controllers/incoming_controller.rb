@@ -9,10 +9,9 @@ class  IncomingController < ApplicationController
 
     bookmark = Bookmark.new
     bookmark.url = @url 
-    bookmark.tag_list.add(@hashtag)
-    bookmark.save
+    bookmark.addtag(@hashtag)
 
-    head 200
+    head 200 # tells mailgun that action completely successfully
   end
   
 end
