@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   post :incoming, to: 'incoming#create'
 
-  resources :bookmarks, only: [:index]
+  resources :bookmarks, only: [:index, :destroy]
 
 
 #   devise_scope :user do
