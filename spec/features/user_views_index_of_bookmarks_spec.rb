@@ -30,11 +30,4 @@ feature 'User visits bookmarks index and sees the bookmarks he has saved' do
 
 
 
-
-
-
-
-
-
-
 end

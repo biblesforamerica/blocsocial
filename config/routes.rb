@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   get 'bookmarks/index'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   post :incoming, to: 'incoming#create'
 
   resources :bookmarks, only: [:index, :destroy]
+  resources :likes, only: [:index]
 
 
 #   devise_scope :user do
