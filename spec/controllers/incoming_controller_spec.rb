@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 describe IncomingController do
   describe "emails from an existing user" do
     it "should find the user's account by the sender email address" do
@@ -39,10 +38,8 @@ describe IncomingController do
       tagname = "Heavenly" 
       params = incoming_email_params(subject: tagname)
       post :create, params
-      expect(Bookmark.first.tag_list).to include(tagname)
+      expect(Bookmark.tagged_with(tagname).first.url).to eq params[:'body-plain']
     end
-
-
 
   end
 end

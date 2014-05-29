@@ -12,6 +12,10 @@ class Bookmark < ActiveRecord::Base
     self.likes.size
   end
 
+  def addtag(tag)
+    self.tag_list.add(tag)
+    self.save
+  end
 
 end
 
