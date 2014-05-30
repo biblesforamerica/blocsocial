@@ -1,8 +1,10 @@
 class BookmarksController < ApplicationController
   def index
     @all_bookmarks = Bookmark.all
+
     @tags = []
     @all_bookmarks.collect{|bookmark| @tags << bookmark.tag_list }
+    @tags = @tags.uniq
   end
 
   def my_bookmarks

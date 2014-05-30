@@ -9,7 +9,7 @@ feature 'User sees index of all bookmarks' do
     pending
     tag = "Powerhouse"
     create(:bookmark, user: user, url: "google.com", tag_list: tag )
-    create(:bookmark, user: user2, url: "apple.com", tag_list: tag )
+    create(:bookmark, user: user3, url: "apple.com", tag_list: tag )
 
     login(user)
     visit bookmarks_path
@@ -19,10 +19,17 @@ feature 'User sees index of all bookmarks' do
 
   scenario 'sees all hashes successfully' do
     tag = "Powerhouse"
+    tag2 = "Sports"
+
     create(:bookmark, user: user, url: "google.com", tag_list: tag )
+    create(:bookmark, user: user2, url: "apple.com", tag_list: tag)
+
+    create(:bookmark, user: user2, url: "espn.com", tag_list: tag2 )
+    create(:bookmark, user: user2, url: "nba.com", tag_list: tag2 )
 
     login(user)
     visit bookmarks_path
+    save_and_open_page
     expect(page).to have_content "Powerhouse"
 
   end
