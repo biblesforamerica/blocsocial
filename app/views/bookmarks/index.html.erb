@@ -1,12 +1,19 @@
 <h1> My Bookmarks </h1>
+
 <% @tags.each do |tag| %>
   <%= content_tag :div, id: "#{tag}" do %>
     <%= tag %>
-    <ul>
-    <#% @bookmarks.each do |bookmark|%>
+    <table class="table"> 
       <% @bookmarks.tagged_with(tag).each do |bookmark|%>
-        <li><%= bookmark.url %></li>
+        <tr>
+          <td>
+            <%= bookmark.url %>
+          </td>
+          <td>
+            <%= link_to "delete", bookmark, method: :delete %>
+          </td>
+        </tr>
       <% end %>
-    </ul>
+    </table>
   <% end %>
 <% end %>
