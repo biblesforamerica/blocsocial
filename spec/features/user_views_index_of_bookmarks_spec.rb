@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'User visits bookmarks index' do 
+feature 'User visits my bookmarks index' do 
 
   let(:user) {create(:user)}
   let(:user2) {create(:user)}
@@ -11,7 +11,7 @@ feature 'User visits bookmarks index' do
     create(:bookmark, user: user, url: "apple.com", tag_list: tag ) 
 
     login(user)
-    visit bookmarks_path
+    visit my_bookmarks_path
     expect(page).to have_content "google.com"
     expect(page).to have_content "apple.com"
   end
@@ -19,7 +19,7 @@ feature 'User visits bookmarks index' do
   scenario "does not see the ones he does not own" do
     create(:bookmark, user: user2, url: "user2.me")
     login(user) 
-    visit bookmarks_path
+    visit my_bookmarks_path
     expect(page).to_not have_content "user2.me"
   end
 
@@ -29,7 +29,7 @@ feature 'User visits bookmarks index' do
     create(:bookmark, user: user, url: url, tag_list: tag )
 
     login(user)
-    visit bookmarks_path
+    visit my_bookmarks_path
     within("##{tag}") do
       expect(page).to have_content (url)
     end

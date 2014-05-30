@@ -1,6 +1,12 @@
 class BookmarksController < ApplicationController
   def index
-    @bookmarks = current_user.bookmarks
+    @all_bookmarks = Bookmark.all
+    @tags = []
+    @all_bookmarks.collect{|bookmark| @tags << bookmark.tag_list }
+  end
+
+  def my_bookmarks
+    @my_bookmarks = current_user.bookmarks
     @tags = current_user.my_hashes #bookmarks are grouped by hashes, which are like topics
   end
 
