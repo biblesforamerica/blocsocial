@@ -32,6 +32,8 @@ GEM
       activerecord (>= 3, < 5)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
+    bootstrap-sass (3.1.1.1)
+      sass (~> 3.2)
     builder (3.2.2)
     capybara (2.2.1)
       mime-types (>= 1.16)
@@ -192,6 +194,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
+  bootstrap-sass
   capybara
   devise
   factory_girl_rails (~> 4.0)
