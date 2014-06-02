@@ -8,8 +8,10 @@ class  IncomingController < ApplicationController
     @hashtag = params[:subject] 
 
     bookmark = Bookmark.new
-    bookmark.url = @url 
+    bookmark.url = @url
     bookmark.addtag(@hashtag)
+
+    @user.bookmarks << bookmark
 
     head 200 # tells mailgun that action completely successfully
   end

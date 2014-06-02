@@ -9,7 +9,7 @@ describe IncomingController do
       expect(assigns(:user)).to eq user
     end
 
-    it "should retieve the user's hashtag from subject line" do
+    it "should extract the hashtag from the subject and assign to @hashtag" do
       params = incoming_email_params
       post :create, params
       expect(assigns(:hashtag)).to eq params[:subject]
@@ -21,9 +21,13 @@ describe IncomingController do
       expect(assigns(:url)).to eq params[:'body-plain']
     end
 
-    it "should attach a url to the user's account"
+    it "should attach a url to the user's account" do
+      user = create(:user)
+      params = incoming_email_params(sender: user.email)
+      post :create, params
+      expect(user.bookmarks.find_by_url("awesomesite.com")).to be_true
+    end
 
-    it "should assign the hash tag to @hashtag"
 
     it "should create the hash tag if the hash tag does not exist" do
       tagname = "Heavenly" 
@@ -44,11 +48,10 @@ describe IncomingController do
   end
 end
 
-
 def incoming_email_params(options = {})
   {
     sender: "sender@example.com",
     subject: "Some email subject",
-    :'body-plain' => "Body of the email"
+    :'body-plain' => "awesomesite.com"
   }.merge(options)
 end
