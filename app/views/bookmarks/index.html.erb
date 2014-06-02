@@ -1,19 +1,7 @@
 <h1> All Bookmarks </h1>
-
 <% @tags.each do |tag| %>
-  <%= content_tag :div, id: "#{tag}" do %>
-    <%= tag %>
-    <table class="table"> 
-      <% @all_bookmarks.tagged_with(tag).each do |bookmark|%>
-        <tr>
-          <td>
-            <%= bookmark.url %>
-          </td>
-          <td>
-            <%= link_to "delete", bookmark, method: :delete %>
-          </td>
-        </tr>
-      <% end %>
-    </table>
+  <h3><%= tag %></h3>
+  <% @bookmarks.tagged_with(tag).each do |bookmark|%>
+    <%= bookmark.url %>
   <% end %>
 <% end %>
