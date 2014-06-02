@@ -4,6 +4,10 @@ class BookmarksController < ApplicationController
     @tags = current_user.my_hashes #bookmarks are grouped by hashes, which are like topics
   end
 
+  def all
+    @bookmarks = Bookmark.all
+  end
+
   def destroy
     @bookmark = Bookmark.find(params[:id])
     if @bookmark.destroy
