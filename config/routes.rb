@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
 
 
-  get 'bookmarks/index'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root to: 'welcome#index'
 
   post :incoming, to: 'incoming#create'
 
-  resources :bookmarks, only: [:index, :destroy]
+  resources :bookmarks, only: [:index, :destroy] do
+    collection do
+      get 'my', to: 'bookmarks#my_bookmarks'
+    end
+  end
   resources :likes, only: [:index]
 
 
