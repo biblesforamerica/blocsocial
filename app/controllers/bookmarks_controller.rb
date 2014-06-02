@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
   def index
-    @bookmarks = Bookmark.all
+    @bookmarks = Bookmark.by_join_date
     @tags = Bookmark.tag_counts
   end
 

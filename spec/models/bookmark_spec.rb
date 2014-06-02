@@ -32,5 +32,15 @@ describe Bookmark do
     end
   end
 
+  describe  "Custom scopes" do
+    describe "by_join_date" do
+      it "should sort in descendding order based on created at" do
+        yesterday = create(:bookmark, created_at: 1.days.ago)
+        lastweek = create(:bookmark, created_at: 7.days.ago)
+        expect(Bookmark.by_join_date).to eq [yesterday, lastweek]
+      end
+    end
+  end
+
   
 end

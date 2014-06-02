@@ -7,7 +7,7 @@ feature 'User deletes a bookmark he submitted' do
     create :bookmark, user: user, url: url, tag_list: ["Spirit"]
 
     login(user)
-    visit bookmarks_path
+    visit my_bookmarks_path
     expect(page).to have_content(url)
     click_link "delete"
     expect(page).to have_content("Successfully deleted wiki")
