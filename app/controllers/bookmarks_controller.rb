@@ -6,6 +6,7 @@ class BookmarksController < ApplicationController
 
   def all
     @bookmarks = Bookmark.all
+    @tags = Bookmark.tag_counts
   end
 
   def destroy

@@ -1,5 +1,7 @@
 <h1> All Bookmarks </h1>
-
-<% @bookmarks.each do |bookmark| %>
+<% @tags.each do |tag| %>
+  <h3><%= tag %></h3>
+    <% @bookmarks.tagged_with(tag).each do |bookmark|%>
       <%= bookmark.url %>
+    <% end %>
 <% end %>
