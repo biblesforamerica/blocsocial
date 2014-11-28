@@ -34,4 +34,16 @@ feature 'User visits my bookmarks index' do
       expect(page).to have_content (url)
     end
   end
+
+  scenario "see multiple bookmarks with multiple hashtags" do
+    tag = "Economy"
+    tag2 = "Search"
+    create(:bookmark, user: user, url: "www.lettheword.com", tag_list: tag )
+    create(:bookmark, user: user, url: "www.google.com", tag_list: tag2 )
+    create(:bookmark, user: user, url: "www.ministrybooks.org", tag_list: [tag,tag2] )
+
+    login(user)
+    visit my_bookmarks_path
+    save_and_open_page
+  end
 end
